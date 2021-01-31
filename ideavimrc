@@ -1,0 +1,92 @@
+" Sätter ledare-symbolen till mellanslag.
+let mapleader = "\<Space>"
+
+
+
+" Change the bookmarks shortcut to something more available.
+nmap <leader>å :action ToggleBookmarkWithMnemonic<cr>
+nmap å :action ShowBookmarks<cr>
+nmap Å :action Bookmarks<cr>
+
+" go to somewhere (g in normal mode for goto somewhere)
+nnoremap ga :<C-u>action GotoAction<CR>
+vnoremap ga :<C-u>action GotoAction<CR>
+nnoremap gk :<C-u>action GotoClass<CR>
+nnoremap gd :<C-u>action GotoDeclaration<CR>
+nnoremap gs :<C-u>action GotoSuperMethod<CR>
+nnoremap gi :<C-u>action GotoImplementation<CR>
+nnoremap gf :<C-u>action GotoFile<CR>
+nnoremap gm :<C-u>action GotoSymbol<CR>
+nnoremap gl :<C-u>action JumpToLastChange<CR>
+nnoremap gy :<C-u>action ShowUsages<CR>
+nnoremap gt :<C-u>action GotoTest<CR>
+nnoremap gp :<C-u>action FindInPath<CR>
+nnoremap <leader>o :<C-u>action RecentFiles<CR>
+
+" Kopierar path
+nnoremap <leader>y :<C-u>action CopyReferencePopup<CR>
+
+nnoremap £ :<C-u>action StartStopMacroRecording<CR>
+nnoremap Ä :<C-u>action Macros<CR>
+
+
+nnoremap <Leader>fa :<C-u>action ReformatCode<CR>
+nnoremap <Leader>ff :<C-u>action EditorCompleteStatement<CR>
+nnoremap <Leader>r :<C-u>action RenameElement<CR>
+nnoremap <Leader><esc> :<C-u>action CloseAllNotification<CR>
+
+nnoremap <leader>b :action ToggleLineBreakpoint<cr>
+nnoremap <leader>m :action Move<cr>
+
+nnoremap <Leader>p :action ShowNavBar<CR>
+nnoremap <C-p> :action ActivateProjectToolWindow<CR>
+" live templates
+vnoremap <leader>ä :action SurroundWith<cr> i
+nnoremap <leader>ä :action SurroundWith<cr> i
+vnoremap ä :action InsertLiveTemplate<cr> i
+nnoremap ä :action InsertLiveTemplate<cr> i
+
+nnoremap <leader>i :action Inline<cr>
+nnoremap <leader>ö :action FileStructurePopup<cr>
+" Flytta rader ett steg upp eller ner
+nnoremap <leader>j :action MoveStatementDown<cr>
+nnoremap <leader>k :action MoveStatementUp<cr>
+vnoremap <leader>j :action MoveStatementDown<cr>
+vnoremap <leader>k :action MoveStatementUp<cr>
+
+" Run and debug
+nnoremap \R :action RunClass<cr>
+nnoremap \r :action Run<cr>
+nnoremap \D :action DebugClass<cr>
+nnoremap \d :action Debug<cr>
+nnoremap \c :action ChooseRunConfiguration<cr>
+nnoremap \C :action ChooseDebugConfiguration<cr>
+
+nnoremap [[ :action MethodUp<cr>
+nnoremap ]] :action MethodDown<cr>
+
+" nnoremap <C-w>q :action Unsplit<cr>
+
+" Fixar så sökningen blir caseinsensetive
+set ignorecase
+set smartcase
+
+" Emulated Plugins
+set commentary
+set highlightedyank
+set ReplaceWithRegister
+set argtextobj
+set surround
+" Fixar så jetbrains bookmarks funkar som vim bookmarks
+" set ideamarks
+
+set easymotion
+let g:EasyMotion_override_acejump = 0
+" Fixar AceJump i Vim stil. 
+map , <Plug>(easymotion-prefix)
+
+" Use Idea to join lines smartly
+set ideajoin
+
+" Copy to system clipboard as well
+set clipboard+=unnamed
